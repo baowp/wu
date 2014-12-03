@@ -1,8 +1,10 @@
 package com.wubole.fight.service;
 
 import com.wubole.fight.entity.ExperienceEntity;
+import com.wubole.fight.enums.ExperienceType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -27,8 +29,13 @@ public class ExperienceServiceTest {
     private ExperienceService experienceService;
 
     @Test
+    //@Rollback(false)
     public void testInsert() {
         ExperienceEntity entity = new ExperienceEntity();
+        entity.setResumeId(1L);
+        entity.setType(ExperienceType.company);
+        entity.setOrganization("某某公司");
+        entity.setPosition("developer");
         int flag = experienceService.insert(entity);
         assertTrue(flag > 0);
     }

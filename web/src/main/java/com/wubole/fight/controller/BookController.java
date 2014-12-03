@@ -1,4 +1,4 @@
-package com.wubole.fight.trade.controller;
+package com.wubole.fight.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.genlot.sports.account.shared.dto.BookDto;

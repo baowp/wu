@@ -35,16 +35,15 @@
     <!-- define the SqlSessionFactory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="typeAliasesPackage" value="com.genlot.sports.account.entity" />
+        <property name="typeAliasesPackage" value="com.wubole.fight.entity" />
     </bean>
 
     <!-- scan for mappers and let them be autowired -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.genlot.sports.account.persistence" />
+        <property name="basePackage" value="com.wubole.fight.persistence" />
     </bean>
 
     <!-- enable component scanning and autowire (beware that this does not enable mapper scanning!) -->
-    <context:component-scan base-package="com.genlot.sports.account" />
+    <context:component-scan base-package="com.wubole.fight" />
 
-    <import resource="spring-dubbo.xml"/>
 </beans>

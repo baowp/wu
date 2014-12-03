@@ -1,4 +1,4 @@
-package com.genlot.sports.trade;
+package com.wubole.fight.trade;
 
 import org.eclipse.jetty.diy.launch.Main;
 

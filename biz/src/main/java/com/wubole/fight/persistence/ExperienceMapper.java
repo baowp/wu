@@ -8,4 +8,7 @@ import com.wubole.fight.entity.ExperienceEntity;
 public interface ExperienceMapper {
 
     int insert(ExperienceEntity experience);
+
+    ExperienceEntity get(long id);
+
 }

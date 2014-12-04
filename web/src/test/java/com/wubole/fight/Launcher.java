@@ -1,4 +1,4 @@
-package com.wubole.fight.trade;
+package com.wubole.fight;
 
 import org.eclipse.jetty.diy.launch.Main;
 

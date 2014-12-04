@@ -12,5 +12,8 @@
             <span>${book.price}</span>
         </div>
     </c:forEach>
+    <div>
+        <span>${experience.getOrganization()}</span>
+    </div>
 </body>
 </html>

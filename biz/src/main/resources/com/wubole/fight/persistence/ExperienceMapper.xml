@@ -25,4 +25,19 @@
         )
     </insert>
 
+    <sql id="selectColumns">
+        select id,
+                create_time   createTime,
+                modified_time modifiedTime,
+                resume_id     resumeId,
+                type,
+                organization,
+                position
+        from experience
+    </sql>
+
+    <select id="get" parameterType="long" resultType="ExperienceEntity">
+        <include refid="selectColumns"/>
+        where id=#{id}
+    </select>
 </mapper>

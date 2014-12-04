@@ -19,4 +19,9 @@ public class ExperienceServiceImpl implements ExperienceService {
     public int insert(ExperienceEntity entity) {
         return experienceMapper.insert(entity);
     }
+
+    @Override
+    public ExperienceEntity get(long id) {
+        return experienceMapper.get(id);
+    }
 }

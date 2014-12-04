@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -38,5 +39,11 @@ public class ExperienceServiceTest {
         entity.setPosition("developer");
         int flag = experienceService.insert(entity);
         assertTrue(flag > 0);
+    }
+
+    @Test
+    public void testGet(){
+        ExperienceEntity entity=experienceService.get(2l);
+        assertNotNull(entity);
     }
 }

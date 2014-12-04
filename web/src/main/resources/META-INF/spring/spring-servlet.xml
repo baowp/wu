@@ -13,5 +13,5 @@
         <beans:property name="suffix" value=".jsp" />
     </beans:bean>
 
-    <context:component-scan base-package="com.genlot.sports.trade.controller"/>
+    <context:component-scan base-package="com.wubole.fight.controller"/>
 </beans:beans>

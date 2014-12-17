@@ -1,5 +1,7 @@
 package com.wubole.fight.utils.protocol;
 
+import com.wubole.fight.utils.StringUtils;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -20,20 +22,24 @@ public class NormalHttpClentTest {
 
     @Resource
     private NormalHttpClient normalHttpClient;
+    private String uid="rayburn";
+    private String pwd="232323";
+    private String md5= DigestUtils.md5Hex(pwd+uid);
 
     @Test
     public void testGet() throws URISyntaxException {
-        String url = "http://sms.sms666.cn/WebAPI/SmsAPI.asmx/GetBalance";
-        url += "?user=rayburn&pwd=859580";
+        String url = "http://api.sms.cn/mm/?";
+        url += "uid="+uid+"&pwd="+md5;
         String result = normalHttpClient.get(new URI(url));
         assertNotNull(result);
     }
 
     @Test
     public void testSend() throws URISyntaxException {
-        String url = "http://sms.sms666.cn/WebAPI/SmsAPI.asmx/SendSmsExt";
-        url += "?user=rayburn&pwd=859580&mobiles=18658875027&contents=这是一条测试发的短信！&chid=0&sendtime=";
-        String result = normalHttpClient.get(new URI(url));
-        assertNotNull(result);
+        String url = "http://api.sms.cn/mt/?";
+        String content= StringUtils.encode("您的验证码是123456。请在页面中提交验证码完成验证。");
+        url += "uid="+uid+"&pwd="+md5+"&mobile=18658875027&content="+content+"&encode=utf8";
+        /*String result = normalHttpClient.get(new URI(url));
+        assertNotNull(result);*/
     }
 }

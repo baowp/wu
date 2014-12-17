@@ -17,7 +17,8 @@ import java.util.Map;
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
-    private static final Logger logger= LoggerFactory.getLogger(StringUtils.class);
+    private static final Logger logger = LoggerFactory.getLogger(StringUtils.class);
+
     /**
      * get the node text
      *
@@ -127,7 +128,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return String.valueOf(array);
     }
 
-    public static String serialize(Map<String,String> params){
+    public static String serialize(Map<String, String> params) {
         StringBuilder link = new StringBuilder();
         boolean first = true;
         for (Map.Entry<String, String> entry : params.entrySet()) {
@@ -136,7 +137,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
             if (value == null || "".equals(value.trim())) continue;
             if (!first) link.append("&");
             try {
-                link.append(key).append("=").append(URLEncoder.encode(value, "UTF-8"));
+                link.append(key).append("=").append(URLEncoder.encode(value, Constant.ENCODE));
             } catch (UnsupportedEncodingException e) {
                 logger.error(e.getMessage(), e);
             }
@@ -154,6 +155,13 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return map;
     }
 
+    public static String encode(String str) {
+        try {
+            return URLEncoder.encode(str, Constant.ENCODE);
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
 

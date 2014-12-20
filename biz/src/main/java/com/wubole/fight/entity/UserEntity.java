@@ -1,6 +1,5 @@
 package com.wubole.fight.entity;
 
-import com.sun.javafx.image.IntPixelGetter;
 
 import java.io.Serializable;
 import java.util.Date;

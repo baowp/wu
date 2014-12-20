@@ -334,6 +334,17 @@
 					<target>${java-version}</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.0.6.v20130930</version>
+				<configuration>
+					<webAppSourceDirectory>bundle/target/fight-bundle</webAppSourceDirectory>
+					<webApp>
+						<contextPath>/</contextPath>
+					</webApp>
+				</configuration>
+			</plugin>
 		</plugins>
 		<resources>
 			<resource>

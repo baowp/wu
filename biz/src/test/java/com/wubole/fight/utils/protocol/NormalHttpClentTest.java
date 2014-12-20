@@ -39,7 +39,7 @@ public class NormalHttpClentTest {
         String url = "http://api.sms.cn/mt/?";
         String content= StringUtils.encode("您的验证码是123456。请在页面中提交验证码完成验证。");
         url += "uid="+uid+"&pwd="+md5+"&mobile=18658875027&content="+content+"&encode=utf8";
-        /*String result = normalHttpClient.get(new URI(url));
-        assertNotNull(result);*/
+        String result = normalHttpClient.get(new URI(url));
+        assertNotNull(result);
     }
 }

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wubole.fight.persistence.UserMapper">
+
+    <insert id="insert" parameterType="UserEntity">
+        <selectKey resultType="Long" order="AFTER" keyProperty="id">
+            select last_insert_id() as id
+        </selectKey>
+        insert into user (
+        create_time,
+        modified_time,
+        username,
+        password,
+        email,
+        email_verified,
+        mobile,
+        mobile_verified,
+        mobile_validate_code,
+        gender,
+        age,
+        last_login_time,
+        status
+        ) values (
+        now(),
+        now(),
+        #{username},
+        #{password},
+        #{email},
+        #{emailVerified},
+        #{mobile},
+        #{mobileVerified},
+        #{mobileValidateCode},
+        #{gender},
+        #{age},
+        #{lastLoginTime},
+        #{status}
+        )
+    </insert>
+
+    <sql id="selectColumns">
+        select id,
+                create_time     createTime,
+                modified_time   modifiedTime,
+                username,
+                password,
+                email,
+                email_verified  emailVerified,
+                mobile,
+                mobile_verified mobileVerified,
+                mobile_validate_code  mobileValidateCode,
+                gender,
+                age,
+                last_login_time lastLoginTime,
+                status
+        from user
+    </sql>
+
+    <update id="updateMobileValidateCode" parameterType="UserEntity">
+        update user set mobile_validate_code=#{mobileValidateCode},
+                        modified_time=current_timestamp
+        where mobile=#{mobile}
+    </update>
+
+    <update id="updatePassword" parameterType="UserEntity">
+        update user set password=#{password},
+                        modified_time=CURRENT_TIMESTAMP
+        where mobile=#{mobile}
+    </update>
+
+    <select id="get" parameterType="long" resultType="UserEntity">
+        <include refid="selectColumns"/>
+        where id=#{id}
+    </select>
+
+    <select id="getByMobile" parameterType="String" resultType="UserEntity">
+        <include refid="selectColumns"/>
+        where mobile=#{mobile}
+    </select>
+</mapper>

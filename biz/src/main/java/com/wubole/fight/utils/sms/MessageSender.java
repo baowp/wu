@@ -28,7 +28,7 @@ public class MessageSender {
     private String url = "http://api.sms.cn/mt/?";
 
     public String sendValidateCode(String code, String mobile) {
-        String content = StringUtils.encode("您的短信验证码为" + code + "，请在页面中提交请求。");
+        String content = StringUtils.encode("您的短信验证码为" + code + "，请在页面中提交请求。【五伯乐】");
         url += "uid=" + uid + "&pwd=" + md5 + "&mobile=" + mobile + "&content=" + content + "&encode=utf8";
         String result = null;
         try {

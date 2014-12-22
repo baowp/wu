@@ -20,6 +20,9 @@
         <property name="maxActive" value="${dbcp.maxActive}"/>
         <property name="maxIdle" value="${dbcp.maxIdle}"/>
         <property name="maxWait" value="${dbcp.maxWait}"/>
+        <property name="testWhileIdle" value="true" />
+        <property name="validationQuery" value="select 1 FROM DUAL" />
+        <property name="timeBetweenEvictionRunsMillis" value="86400"/>
     </bean>
 
     <!-- transaction manager, use JtaTransactionManager for global tx -->

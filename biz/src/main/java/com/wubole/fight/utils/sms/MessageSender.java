@@ -29,6 +29,7 @@ public class MessageSender {
 
     public String sendValidateCode(String code, String mobile) {
         String content = StringUtils.encode("您的短信验证码为" + code + "，请在页面中提交请求。【五伯乐】");
+        content = StringUtils.encode("您的验证码是" + code + "。请在页面中提交验证码完成验证。【优安鲜品】");
         url += "uid=" + uid + "&pwd=" + md5 + "&mobile=" + mobile + "&content=" + content + "&encode=utf8";
         String result = null;
         try {

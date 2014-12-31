@@ -39,9 +39,10 @@ public class UserController {
 
     @RequestMapping("/setPassword")
     @ResponseBody
-    public int setPassword(String mobile, String password) {
+    public int setPassword(String mobile, String password,String validateCode) {
         String encodedPass = DigestUtils.md5Hex(password);
-        UserEntity user = new UserEntity();
+        UserEntity user = userService.getByMobile(mobile);
+        //if()
         user.setMobile(mobile);
         user.setPassword(encodedPass);
         return userService.updatePassword(user);

@@ -1,4 +1,4 @@
-package com.wubole.fight.controller;
+package com.wubole.fight.web.controller;
 
 import com.wubole.fight.domain.ValidateCodeResult;
 import com.wubole.fight.entity.UserEntity;

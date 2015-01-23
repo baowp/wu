@@ -1,4 +1,4 @@
-package com.wubole.fight.controller;
+package com.wubole.fight.web.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.wubole.fight.entity.ExperienceEntity;

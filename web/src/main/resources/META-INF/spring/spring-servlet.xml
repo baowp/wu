@@ -27,4 +27,11 @@
             </beans:bean>
         </websocket:handshake-interceptors>
     </websocket:handlers>
+
+    <!--<websocket:message-broker application-destination-prefix="/app">
+        <websocket:stomp-endpoint path="/simple">
+            <websocket:sockjs />
+        </websocket:stomp-endpoint>
+        <websocket:simple-broker prefix="/topic" />
+    </websocket:message-broker>-->
 </beans:beans>

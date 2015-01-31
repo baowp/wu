@@ -19,7 +19,7 @@
     </appender>
 
     <logger name="org.springframework" level="INFO"/>
-    <logger name="org.apache.zookeeper" level="warn"/>
+    <logger name="org.apache.zookeeper" level="INFO"/>
 
     <root level="INFO">
         <appender-ref ref="DETAIL"/>
